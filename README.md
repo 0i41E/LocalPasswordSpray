@@ -8,10 +8,10 @@ The script extracts the local lockout policy via `net accounts` - This method is
 ## Usage
 
 ### Username
-The parameter webhook where data gets send to. Define the URL simply after the paramter and get the incoming clipboard content.
+Define the target user
 
 ### PasswordList
-This method required an HIDX poc to be successfully imported on the system. In addition to that, an OMG Elite device with actived HIDX is required. (This method is seen as a work in progress POC)
+This paramter takes a file path as input. 
 
 ### LockoutThreshold (optional)
 Override the system-defined lockout threshold in seconds.
@@ -23,7 +23,10 @@ Override the system-defined lockout duration in seconds.
 Override the system-defined lockout window in seconds.
 
 ### EXAMPLES
-Target the user "admin" with the passwords located in "C:\wordlists\common.txt"
+Target the user "admin" with the passwords located in "C:\wordlists\common.txt":
+
  `Invoke-LocalPasswordSpray -Username "admin" -PasswordList "C:\wordlists\common.txt"`
-Target the user "test" with the password list "pwlist.txt" in the current directory, while manually setting the lockout policy to 5 attempts and a lockout duration of 30min.
+
+Target the user "test" with the password list "pwlist.txt" in the current directory, while manually setting the lockout policy to 5 attempts and a lockout duration of 30min:
+
 `Invoke-LocalPasswordSpray -Username "test" -PasswordList ".\pwlist.txt" -LockoutThreshold 5 -LockoutDuration 1800`
